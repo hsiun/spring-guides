@@ -40,7 +40,7 @@ name参数的值覆盖了默认值"World"并且反应到响应中：
 + 转移到 `gs-rest-service/initial`
 + 跳转到前面创建一个资源表示类
 
-当你完成以上操作，你可以在`gs-rest-service/complete`在检查一遍你的代码。
+当你完成以上操作，你可以在`gs-rest-service/complete`再检查一遍你的代码。
 
 ## 使用Maven构建
 首先，你要设置一个基本的构建脚本。当你使用Spring构建一个apps时，你可以使用任何你喜欢的构建系统，但是使用Maven构建你需要的代码就在这里。如果你不熟悉Maven，参考使用Maven构建Java项目。
@@ -245,10 +245,10 @@ main()方法使用Spring Boot的SpringApplication.run() 方法启动一个运用
 ### 构建一个可执行的JAR
 你可以通过Graddle或者Maven在命令运行这个运用。或者你可以构建成一个单一的可执行JAR文件，这个文件包含所有必须的依耐，类，资源。这使得他很容易被运输，改变版本和在整个开发周期中部署服务作为一个应用，迁移到不同的环境，等等。
 
-如果你使用Gradle，你可以使用./gradlew bootRun运行应用。或者你可以使用./gradlew build构建JAR文件。然后你就可以运行JAR文件了：
+如果你使用Gradle，你可以使用`./gradlew bootRun`运行应用。或者你可以使用`./gradlew build`构建JAR文件。然后你就可以运行JAR文件了：
 `java -jar build/libs/gs-rest-service-0.1.0.jar`
 
-如果你使用Maven，你可以通过./mvnw spring-boot:run运行应用。或者你可以构建JAR文件使用./mvnw clean package。然后你可以运行JAR文件。
+如果你使用Maven，你可以通过`./mvnw spring-boot:run`运行应用。或者你可以构建JAR文件使用`./mvnw clean package`。然后你可以运行JAR文件。
 `java -jar target/gs-rest-service-0.1.0.jar`
 
 > 上面过程将创建一个可执行的JAR。你也可以选择建立一个经典的WAR文件来代替。
@@ -256,12 +256,12 @@ main()方法使用Spring Boot的SpringApplication.run() 方法启动一个运用
 记录的输出展示在下面。这个服务应该很快就可以启动并运行。
 
 ### 测试服务
-现在服务已经启动，访问http://localhost:8080/greeting将看到：
+现在服务已经启动，访问`http://localhost:8080/greeting`将看到：
 ```
 {"id":1,"content":"Hello, World!"}
 ```
 
- http://localhost:8080/greeting?name=User提供了一个name查下参数。注意content属性的值是如何从"Hello, World!" 变为 "Hello User!"的。
+ `http://localhost:8080/greeting?name=User` 提供了一个name查下参数。注意content属性的值是如何从"Hello, World!" 变为 "Hello User!"的。
  ```
  {"id":2,"content":"Hello, User!"}
  ```
