@@ -3,7 +3,7 @@
 这个指南带领你历经创建消费RESTful web服务的过程。
 
 ## 你将要构建什么
-你将构建一个应用，这个应用使用Spring的`RestTemplate` 从http://gturnquist-quoters.cfapps.io/api/random取回一个随机的Spring Boot引用。
+你将构建一个应用，这个应用使用Spring的`RestTemplate` 从`http://gturnquist-quoters.cfapps.io/api/random`取回一个随机的Spring Boot引用。
 
 ## 你需要什么
 + 大约15分钟

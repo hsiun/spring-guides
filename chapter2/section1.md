@@ -3,7 +3,7 @@
 这个指南带领你历经创建消费RESTful web服务的过程。
 
 ## 你将要构建什么
-你将构建一个应用，这个应用使用Spring的`RestTemplate` 从http://gturnquist-quoters.cfapps.io/api/random取回一个随机的Spring Boot引用。
+你将构建一个应用，这个应用使用Spring的`RestTemplate` 从`http://gturnquist-quoters.cfapps.io/api/random`取回一个随机的Spring Boot引用。
 
 ## 你需要什么
 + 大约15分钟
@@ -38,7 +38,8 @@
 ```
 
 `pom.xml`
-```
+
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -116,7 +117,8 @@ RESTful的服务已经启动在`http://gturnquist-quoters.cfapps.io/api/random` 
 
 首先，创建一个包含你需要的域的类去保存数据。如果所有你所需要知道的是Pivotal的名字，电话号码，网站URL，和pivotal软件的页面是关于什么的，然后下面的域类应该可以很好的完成这些：
 `src/main/java/hello/Quote.java`
-```
+
+```java
 package hello;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -159,7 +161,8 @@ public class Quote {
 
 添加一个被嵌入到Quote内部的内。
 `src/main/java/hello/Value.java`
-```
+
+```java
 package hello;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -205,7 +208,8 @@ public class Value {
 
 现在您可以使用`RestTemplate`编写`Application`去从我们的Spring Boot quotation服务获取数据。
 `src/main/java/hello/Application.java`
-```
+
+```java
 public class Application {
 
     private static final Logger log = LoggerFactory.getLogger(Application.class);
@@ -227,7 +231,8 @@ public class Application {
 
 到目前为止，我们还没有使用Spring Boot在我们的应用中，但是有一些这样做的好处，并且这样做也不难。优点之一是我们可以让Spring Boot管理`RestTemplate`信息的转换，因此这样自定义很容易被添加到声明。为了这样做，我们使用在主类中使用`@SpringBootApplication`并且转换主方法去启动它，像在任何Spring Boot应用中。最后，我们使用`CommandLineRunner`回调代替`RestTemplate`，因此他可以在开始时通过Spring Boot执行：
 `src/main/java/hello/Application.java`
-```
+
+```java
 package hello;
 
 import org.slf4j.Logger;
